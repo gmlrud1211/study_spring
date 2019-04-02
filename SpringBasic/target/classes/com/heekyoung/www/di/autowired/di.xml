@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 스프링빈 DTD -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	<!-- bean 스키마 : 빈컴포넌트 설정 -->
+	<!-- context 스키마 : 빈컴포넌트 검색과 어노테이션 설정등 추가가능..  -->
+
+	<!-- annotaion을 이용한 Di를 허용하는 설정-->
+	<context:annotation-config /> 		
+	
+	<!-- Car 클래스의 객체를 car라는 이름의 Spring bean으로 등록 -->
+	<bean id="car" class="com.heekyoung.www.di.autowired.Car" />
+
+
+	<!-- 빈정의가 유일하지 않아서 오류남 -->
+	<!-- 해결방법 1 , 빈을 하나만등록한다 -->
+	<!-- 해결방법 2, autowired 할때 골라줌 -->
+	
+	<!--  Tire 인터페이스의 구현체 골드타이어를 스프링빈으로 등록 -->
+	 <bean id="gTire" class="com.heekyoung.www.di.tire.GoldTire"/> 
+	<!--  Tire 인터페이스의 구현체 실버타이어를 스프링빈으로 등록 -->
+	<bean id="sTire" class="com.heekyoung.www.di.tire.SilverTire"/>
+	
+	
+</beans>

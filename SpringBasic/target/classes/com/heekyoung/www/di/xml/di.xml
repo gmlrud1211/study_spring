@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 스프링빈 DTD -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<!-- Car 클래스의 객체를 car라는 이름의 Spring bean으로 등록 -->
+	<bean id="car" class="com.heekyoung.www.di.xml.Car" />
+
+	<!--  Tire 인터페이스의 구현체 골드타이어를 스프링빈으로 등록 -->
+	<bean id="gTire" class="com.heekyoung.www.di.tire.GoldTire"/>
+	<!--  Tire 인터페이스의 구현체 실버타이어를 스프링빈으로 등록 -->
+	<bean id="sTire" class="com.heekyoung.www.di.tire.SilverTire"/>
+	
+</beans>

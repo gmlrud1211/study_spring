@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 스프링빈 DTD -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<!-- tire 멤버필드에 대한 빈을 대입시키면서 빈으로 등록 -->
+	<bean id="sCar" class="com.heekyoung.www.di.xmlProperty.Car">
+		<property name="tire" ref="sTire"></property>
+	</bean>
+	
+	<!-- SilverTire 빈 등록 -->
+	<bean id="sTire" class="com.heekyoung.www.di.tire.SilverTire">
+	</bean>
+	
+	
+	<!-- tire 멤버필드에 대한 빈을 대입시키면서 빈으로 등록 -->
+	<bean id="gCar" class="com.heekyoung.www.di.xmlProperty.Car">
+		<property name="tire" ref="gTire"></property>
+	</bean>
+	
+	<!-- GoleTire 빈 등록 -->
+	<bean id="gTire" class="com.heekyoung.www.di.tire.GoldTire">
+	</bean>
+	
+</beans>
