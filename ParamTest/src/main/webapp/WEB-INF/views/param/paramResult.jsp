@@ -3,11 +3,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>paramForm</title>
+<title>paramResult</title>
 </head>
 <body>
-${model }<br>
-받은 이름 : ${name }
+<h3>paramResult</h3>
 
 </body>
 </html>

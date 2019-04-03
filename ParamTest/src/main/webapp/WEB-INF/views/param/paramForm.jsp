@@ -11,7 +11,8 @@ ${test }
 
 
 <form action="/param/requestParam" method="post">
-이름 : <input type="text" name="name"/>
+이름 : <input type="text" name="name"/><br>
+나이 : <input type="text" name="age"/><br>
 <input type="submit" />
 
 </form>
