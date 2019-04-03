@@ -7,7 +7,7 @@
 <title>Spring</title>
 </head>
 <body>
-<h3>스프링 하이~</h3>
+<h3>heekyoung.jsp</h3>
 <h4>히경~_~ welcome</h4>
 
 	${data }
