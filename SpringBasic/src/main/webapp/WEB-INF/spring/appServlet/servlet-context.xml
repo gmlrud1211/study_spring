@@ -16,7 +16,7 @@
 	<resources mapping="/resources/**" location="/resources/" />
 	<resources mapping="/img/**" location="/resources/img" />
 	<!-- 실제경로를 외부에서 알수없음, url을 바꾸면서 편하게 접근가능 -->
-	<!--  정적인자원에대한 속성값 정의 location:폴더위치  resources로 mapping한다는 의미-->
+	<!-- 정적인자원에대한 속성값 정의 location:폴더위치  resources로 mapping한다는 의미-->
 	
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -27,8 +27,9 @@
 		
 	</beans:bean>
 	
-	<context:component-scan base-package="com.heekyoung.www" />
+	<context:component-scan base-package="com.heekyoung.www, web.controller" />
 	
+	<beans:bean class="com.heekyoung.www.controller.TestController" name="testController" > </beans:bean>
 	
 	
 </beans:beans>
