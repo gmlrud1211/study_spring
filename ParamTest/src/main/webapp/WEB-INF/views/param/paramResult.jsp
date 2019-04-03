@@ -8,5 +8,8 @@
 <body>
 <h3>paramResult</h3>
 
+이름 : ${person.name }<br>
+나이 : ${person.age }
+
 </body>
 </html>

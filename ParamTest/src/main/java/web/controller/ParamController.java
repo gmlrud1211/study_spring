@@ -24,7 +24,7 @@ public class ParamController {
 	}
 	
 	@RequestMapping(value="/param/requestParam", method=RequestMethod.POST)
-	public String Result (String name, int age, Person person, 
+	public String Result (String name, int age, Person person, Model model,
 						@RequestParam HashMap<String, String> map) { //map앞에는 꼭 requestParam붙여줘야함
 		
 		logger.info("name : "+name);
