@@ -27,9 +27,8 @@
 		
 	</beans:bean>
 	
-	<context:component-scan base-package="com.heekyoung.www, web.controller" />
+	<context:component-scan base-package="web.controller" />
 	
-	<beans:bean class="com.heekyoung.www.controller.TestController" name="testController" > </beans:bean>
 	
 	
 </beans:beans>
