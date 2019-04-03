@@ -33,6 +33,10 @@ public class ParamController {
 		logger.info(person.toString());
 		logger.info(map.toString());
 		
+		model.addAttribute("n",name);
+		model.addAttribute("a",age);
+		model.addAttribute("m",map);
+		
 		return "/param/paramResult";
 	}
 
