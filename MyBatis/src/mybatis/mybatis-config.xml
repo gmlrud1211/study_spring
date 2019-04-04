@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 마이바티스 3 Configuration DOCTYPE -->
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+  <!-- 마이 바티스3 환경 설정 -->
+<configuration>
+<!-- DB 세팅 정보 -->
+  <environments default="development">
+    <environment id="development">
+    <!-- JDBC를 이용한 트랜잭션 관리 세팅 -->
+      <transactionManager type="JDBC"/>
+      <!-- DB접속정보 -->
+      <dataSource type="POOLED">
+        <property name="driver" value="oracle.jdbc.driver.OracleDriver"/>
+        <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+        <property name="username" value="scott"/>
+        <property name="password" value="tiger"/>
+      </dataSource>
+    </environment>
+  </environments>
+  
+  <!-- SQL쿼리 매퍼 지정 -->
+  <mappers>
+    <mapper resource="dao/DeptDaoImpl.xml"/>
+  </mappers>
+</configuration>
