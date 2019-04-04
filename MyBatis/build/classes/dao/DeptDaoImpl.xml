@@ -11,4 +11,17 @@
  		FROM dept
  		WHERE deptno = #{deptno}
  	</select>
+ 	
+ 	<select id="selectAll" resultType="dto.Dept">
+ 		SELECT * FROM dept
+ 		ORDER BY deptno
+ 	</select>
+ 	
+ 	<select id="selectByDname" parameterType ="String" resultType="dto.Dept">
+ 		SELECT deptno, dname, loc
+ 		FROM dept
+		WHERE dname = #{str}
+	<!-- 	WHERE dname = #{_value}  이전버전 -->
+		
+ 	</select>
  </mapper>
