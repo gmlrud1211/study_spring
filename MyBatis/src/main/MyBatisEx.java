@@ -40,6 +40,14 @@ public class MyBatisEx {
 		
 		System.out.println(result2);
 		System.out.println("---------------");
+		
+		
+		Dept insertDept = new Dept();
+		insertDept.setDeptno(99);
+		insertDept.setDname("TEST");
+		insertDept.setLoc("SEOUL");
+		
+		deptDao.insert(insertDept);
 	}
 
 }

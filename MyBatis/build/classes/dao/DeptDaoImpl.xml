@@ -22,6 +22,10 @@
  		FROM dept
 		WHERE dname = #{str}
 	<!-- 	WHERE dname = #{_value}  이전버전 -->
-		
  	</select>
+ 	
+ 	<insert id="insert" parameterType="dto.Dept">
+		INSERT INTO dept(deptno, dname, loc)
+		VALUES (#{deptno}, #{dname}, #{loc})
+ 	</insert>
  </mapper>

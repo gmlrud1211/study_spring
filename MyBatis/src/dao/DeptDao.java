@@ -15,4 +15,7 @@ public interface DeptDao {
 	//dname으로 조회하기
 	public Dept selectByDname(String str);
 
+	//삽입
+	public void insert(Dept dept);
+
 }
