@@ -47,7 +47,13 @@ public class MyBatisEx {
 		insertDept.setDname("TEST");
 		insertDept.setLoc("SEOUL");
 		
-		deptDao.insert(insertDept);
+		try {
+			deptDao.insert(insertDept);
+		}catch(Exception e) {
+			System.out.println("삽입 예외 발생");
+			sqlSession.rollback();
+		}
+		sqlSession.commit();
 	}
 
 }
