@@ -8,5 +8,10 @@
  	<select id="selectCntAllMember" resultType="int">
  		select count(*) from member
  	</select>
+<!--  	
+ 	<select id="selectAll" resultType="dto.Member">
+ 		SELECT * FROM member
+ 		ORDER BY idx
+ 	</select> -->
  </mapper>
  
