@@ -6,7 +6,13 @@
   
  <mapper namespace="web.dao.face.LoginDao">
  	<insert id="insert" parameterType="web.dto.Login">
-		insert into logintb(id, pw, email, phone) values(#{id}, #{pw}, #{email}, #{phone})
+		insert into logintb(id, pw, email, phone) 
+		values(#{id}, #{pw}, #{email}, #{phone})
  	</insert>
+ 
+ 	<select id="loginCheck" resultType="web.dto.Login">
+		SELECT count(*) FROM logintb
+		where id = #{id} and pw = #{pw}
+ 	</select>
  
  </mapper>  

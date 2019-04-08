@@ -1,5 +1,7 @@
 package web.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import web.dto.Login;
 import web.service.face.LoginService;
@@ -50,9 +53,16 @@ public class LoginController {
 
 	//로그인 처리
 	@RequestMapping(value="/login/login", method=RequestMethod.POST)
-	public String loginProc(Login login, Model model) {
+	public ModelAndView loginProc(HttpSession session, String id, String pw) {
+		ModelAndView mav = new ModelAndView();
 		
-		return "redirect:/main";
+		if(loginService.login(id, pw)) {
+			session.setAttribute("id", id);
+            mav.setViewName("redirect:/main");
+		} else {
+			mav.setViewName("redirect:/main");
+		}
+		return mav;
 	}
 
 	@RequestMapping(value="/login/myPage", method=RequestMethod.GET)
@@ -63,7 +73,13 @@ public class LoginController {
 
 	
 	@RequestMapping(value="/login/logout", method=RequestMethod.GET)
-	public void logout() {	}
+	public String logout(HttpSession session) {
+		loginService.logout(session);
+		
+		return "redirect:/main";
+
+
+	}
 
 
 	
