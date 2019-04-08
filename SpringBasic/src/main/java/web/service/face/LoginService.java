@@ -2,6 +2,8 @@ package web.service.face;
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.ui.Model;
+
 import web.dto.Login;
 
 public interface LoginService {
@@ -13,6 +15,7 @@ public interface LoginService {
 	public void logout(HttpSession session);
 
 	//로그인
-	public boolean login(String id, String pw);
+	public int login(Model model);
+
 
 }

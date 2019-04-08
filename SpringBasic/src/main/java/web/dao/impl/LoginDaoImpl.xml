@@ -10,7 +10,7 @@
 		values(#{id}, #{pw}, #{email}, #{phone})
  	</insert>
  
- 	<select id="loginCheck" resultType="web.dto.Login">
+ 	<select id="login" parameterType="String" resultType="int">
 		SELECT count(*) FROM logintb
 		where id = #{id} and pw = #{pw}
  	</select>

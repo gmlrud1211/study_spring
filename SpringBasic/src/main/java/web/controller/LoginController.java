@@ -53,16 +53,26 @@ public class LoginController {
 
 	//로그인 처리
 	@RequestMapping(value="/login/login", method=RequestMethod.POST)
-	public ModelAndView loginProc(HttpSession session, String id, String pw) {
-		ModelAndView mav = new ModelAndView();
+	public String loginProc(HttpSession session, String id, String pw, Model model) {
 		
-		if(loginService.login(id, pw)) {
-			session.setAttribute("id", id);
-            mav.setViewName("redirect:/main");
-		} else {
-			mav.setViewName("redirect:/main");
+		model.addAttribute("id", id);
+		model.addAttribute("pw", pw);
+		
+		int login = loginService.login(model);
+		 
+		 
+		if(login == 1) { //로그인 성공
+			session.setAttribute("login", true);
+			return "redirect:/main";
 		}
-		return mav;
+		
+		else { //로그인 실패 
+			logger.info("로그인 실패");
+			return "redired:/main";
+		}
+		
+		
+		
 	}
 
 	@RequestMapping(value="/login/myPage", method=RequestMethod.GET)
