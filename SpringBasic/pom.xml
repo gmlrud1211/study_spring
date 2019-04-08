@@ -56,6 +56,14 @@
 			<version>12.1.0.2</version>
 		</dependency>		
 		
+		<!-- 마이바티스 -->		
+		<dependency>
+		    <groupId>org.lazyluke</groupId>
+		    <artifactId>log4jdbc-remix</artifactId>
+		    <version>0.2.7</version>
+		</dependency>
+				            
+		
 	
 		<!-- Spring -->
 		<dependency>
