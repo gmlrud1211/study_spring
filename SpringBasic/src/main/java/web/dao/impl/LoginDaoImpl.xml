@@ -14,5 +14,10 @@
 		SELECT count(*) FROM logintb
 		where id = #{id} and pw = #{pw}
  	</select>
+ 	
+ 	<select id="selectUser" resultType="web.dto.Login">
+		 select * from logintb
+		 where id = #{id}	
+ 	</select>
  
  </mapper>  

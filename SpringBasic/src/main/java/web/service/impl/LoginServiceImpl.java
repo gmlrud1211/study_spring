@@ -1,6 +1,7 @@
 package web.service.impl;
 
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -33,6 +34,12 @@ public class LoginServiceImpl implements LoginService{
 	@Override
 	public int login(Model model) {
 		return loginDao.login(model);
+	}
+
+
+	@Override
+	public List<Login> selectUser() {
+		return loginDao.selectUser();
 	}
 
 

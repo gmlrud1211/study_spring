@@ -6,6 +6,7 @@ public class Login {
 	private String pw;
 	private String email;
 	private String phone;
+	
 	public String getId() {
 		return id;
 	}

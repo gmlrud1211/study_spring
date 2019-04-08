@@ -1,5 +1,7 @@
 package web.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -63,11 +65,14 @@ public class LoginController {
 		 
 		if(login == 1) { //로그인 성공
 			session.setAttribute("login", true);
+			logger.info("로그인 성공");
+			
 			return "redirect:/main";
 		}
 		
 		else { //로그인 실패 
 			logger.info("로그인 실패");
+			
 			return "redired:/main";
 		}
 		
@@ -76,7 +81,10 @@ public class LoginController {
 	}
 
 	@RequestMapping(value="/login/myPage", method=RequestMethod.GET)
-	public String mypage(String id) {
+	public String mypage(String id, Model model) {
+		
+		List<Login> user = loginService.selectUser();
+		model.addAttribute("user", user);
 		
 		return "login/myPage";
 	}
