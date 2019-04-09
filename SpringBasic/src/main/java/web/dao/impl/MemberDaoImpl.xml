@@ -14,22 +14,33 @@
 		SELECT * FROM member ORDER BY idx 
 	</select>
 	
-	<select id="selectByName" resultType="web.dto.Member">
+	<select id="selectByName" parameterType="hashmap" resultType="web.dto.Member">  
+		<!-- resultType="web.dto.Member"> -->
 		<!-- parameterType="web.dto.Member" resultType="web.dto.Member"> -->
-		<!-- parameterType="hashmap" resultType="web.dto.Member"> -->
+		
 		
 		SELECT * FROM member
-		<!-- WHERE 1=1 -->
+		WHERE name IN
+		<foreach collection="arr" item="i" open="(" close=")" separator=",">
+			#{i}
+		</foreach>
+		ORDER BY idx
+		
+		
+		
+		<!-- trim
+		SELECT * FROM member
+		WHERE 1=1
 		<trim prefix="WHERE" prefixOverrides="AND|OR">
 		 <if test="name != ''"> 
 			and name = #{name}
 		</if>
 		<if test="email != ''"> 
 			and email like '%'||#{email}||'%'
-			<!-- where email like '%${email}%' 도 되긴하지만 위에거 사용 -->
+			where email like '%${email}%' 도 되긴하지만 위에거 사용
 		</if>
 		</trim>
-		ORDER BY idx 
+		ORDER BY idx  -->
 		<!-- <choose>
 		<when test="name != '' and email != ''">
 			and name = #{name}

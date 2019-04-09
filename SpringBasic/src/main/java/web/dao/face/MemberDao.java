@@ -15,7 +15,7 @@ public void insert(Member member);
 
 //	public List<Member> selectByName(Member member);
 	
-//	public List<Member> selectByName(HashMap map);
+	public List<Member> selectByName(HashMap map);
 	
 	public List<Member> selectByName(@Param("name") String name,
 									@Param("email") String email);

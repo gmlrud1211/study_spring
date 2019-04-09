@@ -22,18 +22,27 @@ public class MemberServiceImpl implements MemberService{
 
 	@Override
 	public List<Member> getMember() {
-//		return memberDao.selectAll();
-		Member member = new Member();
-		member.setName("회원1");
-		member.setEmail("이");
+
+//		Member member = new Member();
+//		member.setName("회원1");
+//		member.setEmail("이");
 		
+//		HashMap map = new HashMap();
+//		map.put("name", "회원1");
+//		map.put("email", "이");
+
+		String[] names= {"회원1","회원2","회원3"};
 		HashMap map = new HashMap();
-		map.put("name", "회원1");
-		map.put("email", "이");
+		map.put("arr", names);
+		
+		
+//		return memberDao.selectAll();	
 		
 //		return memberDao.selectByName(member);
 //		return memberDao.selectByName(map);
-		return memberDao.selectByName("회원1","이");
+		
+//		return memberDao.selectByName("회원1","이");
+		return memberDao.selectByName(map);
 		
 	}
 
