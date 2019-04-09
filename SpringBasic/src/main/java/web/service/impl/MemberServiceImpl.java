@@ -32,7 +32,9 @@ public class MemberServiceImpl implements MemberService{
 		map.put("email", "이");
 		
 //		return memberDao.selectByName(member);
-		return memberDao.selectByName(map);
+//		return memberDao.selectByName(map);
+		return memberDao.selectByName("회원1","이");
+		
 	}
 
 }

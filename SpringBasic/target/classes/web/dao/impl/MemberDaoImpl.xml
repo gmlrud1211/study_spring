@@ -14,8 +14,9 @@
 		SELECT * FROM member ORDER BY idx 
 	</select>
 	
-	<select id="selectByName" parameterType="hashmap" resultType="web.dto.Member" >
+	<select id="selectByName" resultType="web.dto.Member">
 		<!-- parameterType="web.dto.Member" resultType="web.dto.Member"> -->
+		<!-- parameterType="hashmap" resultType="web.dto.Member"> -->
 		
 		SELECT * FROM member
 		WHERE 1=1
