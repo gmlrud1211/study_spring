@@ -14,10 +14,17 @@
 		SELECT * FROM member ORDER BY idx 
 	</select>
 	
-	<select id="selectByName" parameterType="String" resultType="web.dto.Member">
+	<select id="selectByName" parameterType="hashmap" resultType="web.dto.Member" >
+		<!-- parameterType="web.dto.Member" resultType="web.dto.Member"> -->
+		
 		SELECT * FROM member
-		<if test="_parameter != ''"> 
-			where name = #{value}
+		WHERE 1=1
+		<if test="name != ''"> 
+			and name = #{name}
+		</if>
+		<if test="email != ''"> 
+			and email like '%'||#{email}||'%'
+			<!-- where email like '%${email}%' 도 가능하나 위에거로 사용-->
 		</if>
 		ORDER BY idx 
 	</select>

@@ -1,6 +1,9 @@
 package web.dao.face;
 
+import java.util.HashMap;
 import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
 
 import web.dto.Member;
 
@@ -10,7 +13,9 @@ public void insert(Member member);
 	
 	public List<Member> selectAll();
 
-	public List<Member> selectByName(String name);
+//	public List<Member> selectByName(Member member);
+	
+	public List<Member> selectByName(HashMap map);
 	
 
 }
