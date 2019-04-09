@@ -21,7 +21,8 @@ public class MemberServiceImpl implements MemberService{
 
 	@Override
 	public List<Member> getMember() {
-		return memberDao.selectAll();
+//		return memberDao.selectAll();
+		return memberDao.selectByName("");
 	}
 
 }

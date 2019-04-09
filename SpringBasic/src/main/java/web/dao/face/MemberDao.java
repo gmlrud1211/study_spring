@@ -9,6 +9,8 @@ public interface MemberDao {
 public void insert(Member member);
 	
 	public List<Member> selectAll();
+
+	public List<Member> selectByName(String name);
 	
 
 }

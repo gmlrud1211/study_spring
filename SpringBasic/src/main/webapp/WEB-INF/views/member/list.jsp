@@ -27,7 +27,7 @@
 		<td>${m.email }</td>
 		<td>${m.phone }</td>
 		<td>
-		<fmt:formatDate value="${m.join_date }" pattern="yyyymmdd"/>
+		<fmt:formatDate value="${m.join_date }" pattern="yyyy-MM-dd"/>
 		</td>
 	</tr>
 </c:forEach>

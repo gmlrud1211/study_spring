@@ -13,4 +13,12 @@
 	<select id="selectAll" resultType="web.dto.Member"> 
 		SELECT * FROM member ORDER BY idx 
 	</select>
+	
+	<select id="selectByName" parameterType="String" resultType="web.dto.Member">
+		SELECT * FROM member
+		<if test="_parameter != ''"> 
+			where name = #{value}
+		</if>
+		ORDER BY idx 
+	</select>
 </mapper>
