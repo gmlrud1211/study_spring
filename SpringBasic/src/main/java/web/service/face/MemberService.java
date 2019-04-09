@@ -6,9 +6,7 @@ import web.dto.Member;
 
 public interface MemberService {
 
-	public int selectCnt();
-
-//	public List<Member> selectAll();
+	public void join(Member member);
 	
-
+	public List<Member> getMember();
 }
