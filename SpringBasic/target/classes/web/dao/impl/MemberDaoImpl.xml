@@ -20,13 +20,26 @@
 		
 		SELECT * FROM member
 		WHERE 1=1
-		<if test="name != ''"> 
+		<!-- <if test="name != ''"> 
 			and name = #{name}
 		</if>
 		<if test="email != ''"> 
 			and email like '%'||#{email}||'%'
-			<!-- where email like '%${email}%' 도 가능하나 위에거로 사용-->
+			where email like '%${email}%' 도 가능하나 위에거로 사용
 		</if>
-		ORDER BY idx 
+		ORDER BY idx  -->
+		<choose>
+		<when test="name != '' and email != ''">
+			and name = #{name}
+			and email like '%'||#{email}||'%'
+		</when>
+		<when test="name != ''">
+			and name = #{name}
+		</when>
+		<when test="email != ''">
+			and email like '%'||#{email}||'%'
+		</when>
+		</choose>
 	</select>
+	
 </mapper>
