@@ -20,4 +20,9 @@ public class InterceptorAdminController {
 		
 	}
 	
+	@RequestMapping("/interceptor/admin/adminFail")
+	public void adminFail() {
+		logger.info("관리자 페이지 접속 실패");
+	}
+	
 }

@@ -24,6 +24,27 @@ public class AdminInterceptor extends HandlerInterceptorAdapter {
 		//세션얻기
 		HttpSession session =request.getSession() ;//세션가져오기
 		
+		if( session.getAttribute("login") == null ) {
+			logger.info(" >> 접속불가 : 로그인되지 않음");
+			
+			response.sendRedirect("/interceptor/admin/adminFail");
+			
+			return false; //컨트롤러 접근 차단
+			
+		} else {
+			logger.info(" >> 로그인 상태");
+			
+			if(!"관리자".equals(session.getAttribute("nick"))) {
+				logger.info(" >> 접속불가 : 일반사용자 로그인 상태");
+				
+				response.sendRedirect("/interceptor/admin/adminFail");
+				
+				return false; //컨트롤러 접근 차단
+				
+			}
+		}
+	
+		
 		return true;
 		//preHandle 메소드의 반환값
 		//true - 컨트롤러 접근 허용
