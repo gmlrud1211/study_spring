@@ -95,9 +95,8 @@ public class LoginController {
 		loginService.logout(session);
 		
 		return "redirect:/main";
-
-
 	}
+	
 
 
 	
