@@ -22,7 +22,7 @@ public class AdminInterceptor extends HandlerInterceptorAdapter {
 		logger.info("interceptor 시작");
 		
 		//세션얻기
-		HttpSession session  ;//세션가져오기
+		HttpSession session =request.getSession() ;//세션가져오기
 		
 		return true;
 		//preHandle 메소드의 반환값
@@ -36,6 +36,6 @@ public class AdminInterceptor extends HandlerInterceptorAdapter {
 		
 		logger.info("interceptor 종료");
 		
-		
+				
 	}
 }
