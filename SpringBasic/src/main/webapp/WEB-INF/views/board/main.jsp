@@ -21,7 +21,11 @@
 		
 		<h2>Main</h2>
 		<hr>
-
+		
+		<div style="text-align: center;">
+		<a href="/board/list"><button>목록</button></a>
+		<hr>
+		
 		<!-- 로그인 안한 상태 -->
 		<c:if test="${ not login }">
 			<p>로그인을 해주시오ㅠ___ㅠ</p>
