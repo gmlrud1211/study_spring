@@ -29,18 +29,16 @@
 		<!-- 로그인 안한 상태 -->
 		<c:if test="${ not login }">
 			<p>로그인을 해주시오ㅠ___ㅠ</p>
-			<a href="/interceptor/login"><button>로그인</button></a>
+			<a href="/board/login"><button>로그인</button></a>
 		</c:if>
 		
 		<!-- 로그인 한 상태 -->
 		<c:if test="${ login }">
 			${nick } 님 하이요			
-			<a href="/interceptor/logout"><button>로그아웃</button></a>
+			<a href="/board/logout"><button>로그아웃</button></a>
 		</c:if>
 		
-		<hr>
-		<button id="btnAdmin">관리자페이지로</button>
-			
+
 	</div>
 		
 		

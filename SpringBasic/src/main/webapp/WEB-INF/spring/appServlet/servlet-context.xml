@@ -21,6 +21,12 @@
 			<exclude-mapping path="/interceptor/admin/adminFail"/>
 			<beans:bean class="web.interceptor.AdminInterceptor"/>
 		</interceptor>
+		<interceptor>
+			<mapping path = "/board/interceptor/**"></mapping>
+			
+			<exclude-mapping path="/board/interceptor/writeFail"></exclude-mapping>
+			<beans:bean class="web.interceptor.BoardInterceptor"></beans:bean>
+		</interceptor>
 	</interceptors>
 	
 

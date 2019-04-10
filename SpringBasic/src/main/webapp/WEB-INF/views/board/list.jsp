@@ -13,7 +13,7 @@
 			<h2>목록</h2>
 			<hr>
 		
-			<a href="/board/write"><button>글쓰기</button></a>
+			<a href="/board/interceptor/write"><button>글쓰기</button></a>
 			
 		</div>	
 	</body>
