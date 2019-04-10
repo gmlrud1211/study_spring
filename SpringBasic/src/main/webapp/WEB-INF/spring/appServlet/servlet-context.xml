@@ -18,9 +18,10 @@
 			<!--  인터셉터 처리되는 URL 매핑  -->
 			<mapping path="/interceptor/admin/**"/> <!-- *이 1개면 한단계만 가능 **면 여러단계 가능 -->
 			 <!--  인터셉터 제외 URL 매핑  -->
-			<exclude-mapping path="/interceptor/admin/adminFail"/>
-			<beans:bean class="web.interceptor.AdminInterceptor"/>
+			 <exclude-mapping path="/interceptor/admin/adminFail"/>
+			<beans:bean class="web.interceptor.AdminInterceptor"/> 
 		</interceptor>
+		
 		<interceptor>
 			<mapping path = "/board/interceptor/**"></mapping>
 			

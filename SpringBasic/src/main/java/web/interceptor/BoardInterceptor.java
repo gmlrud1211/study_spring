@@ -33,20 +33,7 @@ public class BoardInterceptor extends HandlerInterceptorAdapter {
 			
 			return false; //컨트롤러 접근 차단
 			
-		} else {
-			logger.info(" >> 로그인 상태");
-			
-			if(!"관리자".equals(session.getAttribute("nick"))) {
-				logger.info(" >> 접속불가 : 일반사용자 로그인 상태");
-				
-				response.sendRedirect("/board/interceptor/write");
-				
-				return false; //컨트롤러 접근 차단
-				
-			}
-		}
-	
-
+		} 
 		
 		return true;
 	}
