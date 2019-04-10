@@ -16,14 +16,8 @@ public class InterceptorAdminController {
 	@RequestMapping(value="/interceptor/admin/main", method=RequestMethod.GET)
 	public void adminMain() {
 		
+		logger.info("관리자페이지시작");
 		
 	}
-		
-	
-
-
-	
-	
-	
 	
 }
