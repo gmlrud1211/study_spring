@@ -15,7 +15,8 @@
 		<br><br>
 		<label for="file">첨부파일</label>
 		<input type="file" name="file" id="file">
-	
+		<br><br>
+		<input type="submit"/>
 	</form>
 
 </body>
