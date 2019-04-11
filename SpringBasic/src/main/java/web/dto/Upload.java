@@ -9,6 +9,7 @@ public class Upload {
 	private String stored_name;
 	private long file_size; //파일 사이즈는 보통long으로 많이둠
 	private Date uplaod_date;
+	
 	public int getFileno() {
 		return fileno;
 	}
