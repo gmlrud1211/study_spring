@@ -25,6 +25,16 @@
 	
 	<dependencies>
 	
+		<!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
+		<!-- commons 추가 -->
+		<dependency>
+		    <groupId>commons-fileupload</groupId>
+		    <artifactId>commons-fileupload</artifactId>
+		    <version>1.4</version>
+		</dependency>
+				
+		
+	
 		<!--스프링 마이바티스 -->
 		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
 		<dependency>
@@ -56,7 +66,7 @@
 			<version>12.1.0.2</version>
 		</dependency>		
 		
-		<!-- 마이바티스 -->		
+		<!-- 마이바티스 쿼리로그 -->		
 		<dependency>
 		    <groupId>org.lazyluke</groupId>
 		    <artifactId>log4jdbc-remix</artifactId>
