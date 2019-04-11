@@ -10,5 +10,14 @@
 		values(seq_upload.nextval, #{origin_name}, #{stored_name}, #{file_size})
  	</insert>
  
+ 	<select id="selectAll" resultType="web.dto.Upload">
+ 		select * from upload
+ 		order by fileno
+ 	</select>
+ 	
+ 	<select id="selectByFileno" parameterType="int" resultType="web.dto.Upload">
+ 		select * from upload
+ 		where fileno = #{fileno}
+ 	</select>
  
  </mapper>  

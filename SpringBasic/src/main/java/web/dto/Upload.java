@@ -8,7 +8,7 @@ public class Upload {
 	private String origin_name;
 	private String stored_name;
 	private long file_size; //파일 사이즈는 보통long으로 많이둠
-	private Date uplaod_date;
+	private Date upload_date;
 	
 	public int getFileno() {
 		return fileno;
@@ -34,17 +34,17 @@ public class Upload {
 	public void setFile_size(long file_size) {
 		this.file_size = file_size;
 	}
-	public Date getUplaod_date() {
-		return uplaod_date;
-	}
-	public void setUplaod_date(Date uplaod_date) {
-		this.uplaod_date = uplaod_date;
-	}
 	
+	public Date getUpload_date() {
+		return upload_date;
+	}
+	public void setUpload_date(Date upload_date) {
+		this.upload_date = upload_date;
+	}
 	@Override
 	public String toString() {
 		return "Upload [fileno=" + fileno + ", origin_name=" + origin_name + ", stored_name=" + stored_name
-				+ ", file_size=" + file_size + ", uplaod_date=" + uplaod_date + "]";
+				+ ", file_size=" + file_size + ", upload_date=" + upload_date + "]";
 	}
 
 }

@@ -43,8 +43,18 @@
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 		<!--  view부분에 대한 설정 -->
+		<beans:property name="order" value="1"/>
 		
 	</beans:bean>
+	
+	<!-- 스프링빈 기반의 뷰리졸버 -->
+	<beans:bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+		<beans:property name="order" value="0" />
+	</beans:bean>
+	
+	<!--  다운로드 view를 down이라는 이름의 빈으로 등록 -->
+	<beans:bean id="down" class="web.view.DownloadView"></beans:bean>
+	
 	
 	<!-- 파일 요청파라미터 처리 리졸버 -->
 	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
