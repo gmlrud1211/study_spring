@@ -1,12 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>fileupload form</title>
-</head>
-<body>
+
+
 	<h3>파일업로드 폼</h3>
 
 	<form action="/file/fileup" method="post" enctype="multipart/form-data">
@@ -18,6 +13,3 @@
 		<br><br>
 		<input type="submit"/>
 	</form>
-
-</body>
-</html>

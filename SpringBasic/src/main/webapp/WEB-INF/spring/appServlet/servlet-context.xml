@@ -43,9 +43,27 @@
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 		<!--  view부분에 대한 설정 -->
-		<beans:property name="order" value="1"/>
+		<beans:property name="order" value="2"/>
 		
+	<!-- url 기반의 ViewResolver -->
 	</beans:bean>
+	
+	<beans:bean id="tilesViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+	
+		<beans:property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView"/>
+	
+		<beans:property name="order" value="1"/>	
+	</beans:bean>
+	
+	<!--  ui layout 구성 설정 파일 -->
+	<beans:bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+		<beans:property name="definitions">
+			<beans:list>
+				<beans:value>/WEB-INF/tiles/template.xml</beans:value>
+			</beans:list>
+		</beans:property>
+	</beans:bean>
+	
 	
 	<!-- 스프링빈 기반의 뷰리졸버 -->
 	<beans:bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
@@ -53,13 +71,22 @@
 	</beans:bean>
 	
 	<!--  다운로드 view를 down이라는 이름의 빈으로 등록 -->
-	<beans:bean id="down" class="web.view.DownloadView"></beans:bean>
+	<beans:bean id="down" class="web.view.DownloadView"/>
+	
+	
+	
+	<!--  json 응답을 위한 jsonView 빈 등록 -->
+	<beans:bean id="jsonView" class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">
+		<beans:property name="contentType" value="application/json;charset=utf-8"/>
+	</beans:bean>
+	
+	
 	
 	
 	<!-- 파일 요청파라미터 처리 리졸버 -->
 	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-		<beans:property name="maxUploadSize" value="10485760"></beans:property>
-		<beans:property name="maxInMemorySize" value="1048576"></beans:property>		
+		<beans:property name="maxUploadSize" value="10485760"/>
+		<beans:property name="maxInMemorySize" value="1048576"/>		
 	</beans:bean>
 	
 	<context:component-scan base-package="web" />

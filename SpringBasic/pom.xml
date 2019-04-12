@@ -25,6 +25,16 @@
 	
 	<dependencies>
 	
+	
+		<!--jackson Databind (jackson Mpapper를 포함하고 있음)  -->
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		    <version>2.9.8</version>
+		</dependency>
+					
+	
 		<!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
 		<!-- commons 추가 -->
 		<dependency>
@@ -32,8 +42,16 @@
 		    <artifactId>commons-fileupload</artifactId>
 		    <version>1.4</version>
 		</dependency>
-				
 		
+		
+		<!-- tiles extras -->
+		<!-- https://mvnrepository.com/artifact/org.apache.tiles/tiles-extras -->
+		<dependency>
+		    <groupId>org.apache.tiles</groupId>
+		    <artifactId>tiles-extras</artifactId>
+		    <version>3.0.8</version>
+		</dependency>
+	
 	
 		<!--스프링 마이바티스 -->
 		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
