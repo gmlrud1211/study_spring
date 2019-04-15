@@ -3,6 +3,7 @@
 <%@page import="java.util.List"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,17 +16,18 @@
 	   ul li a{padding:10px; text-decoration: none; color:#333; display:block;}
 	   ul li.on{border:1px solid red;}
 	   ul li.on a{color:red}
-	   
-
 </style>
+
+<link rel="stylesheet" href="/css/bootstrap.css">
 </head>
 <body>
 
-	<div>
+	<div class="container">
 		<h3>게시판 리스트</h3>
 		<hr>
 		
-		<table>
+		<form id="boardForm">
+		<table class="table table-striped table-hover">
 			<thead>
 				<tr>
 					<th style="width: 10%">번호</th>
@@ -48,8 +50,13 @@
 				</c:forEach>
 			</tbody>
 		</table>
+		</form>
 	</div>
 	<jsp:include page="../layout/paging.jsp"/>
+	
+	<div>
+		<a href='#' onClick='fn_write()' class="btn btn-success" style="float:right">글쓰기</a>
+	</div>
 	
 </body>
 </html>
