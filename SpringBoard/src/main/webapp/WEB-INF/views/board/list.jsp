@@ -8,34 +8,48 @@
 <head>
 <meta charset="UTF-8">
 <title>board list</title>
+
+<style>
+	ul{text-align:center; margin-top:30px;}
+	   ul li{display: inline-block; border:1px solid #ccc}
+	   ul li a{padding:10px; text-decoration: none; color:#333; display:block;}
+	   ul li.on{border:1px solid red;}
+	   ul li.on a{color:red}
+	   
+
+</style>
 </head>
 <body>
 
-<h3>게시판 리스트</h3>
-<hr>
-
-<table>
-	<thead>
-		<tr>
-			<th style="width: 10%">번호</th>
-			<th style="width: 45%">제목</th>
-			<th style="width: 20%">작성자</th>
-			<th style="width: 10%">조회수</th>
-			<th style="width: 20%">작성일</th>
-		</tr>
-	</thead>
+	<div>
+		<h3>게시판 리스트</h3>
+		<hr>
+		
+		<table>
+			<thead>
+				<tr>
+					<th style="width: 10%">번호</th>
+					<th style="width: 45%">제목</th>
+					<th style="width: 20%">작성자</th>
+					<th style="width: 10%">조회수</th>
+					<th style="width: 20%">작성일</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<c:forEach items="${boardList }" var="board">
+					<tr>
+						<td>${board.board_no }</td>
+						<td>${board.title }</td>
+						<td>${board.writer_id }</td>
+						<td>${board.hit }</td>
+						<td><fmt:formatDate value="${board.write_date }" pattern="yyyy-MM-dd"/></td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+	</div>
+	<jsp:include page="../layout/paging.jsp"/>
 	
-	<tbody>
-		<c:forEach items="${boardList }" var="board">
-			<tr>
-				<td>${board.board_no }</td>
-				<td>${board.title }</td>
-				<td>${board.writer_id }</td>
-				<td>${board.hit }</td>
-				<td><fmt:formatDate value="${board.write_date }" pattern="yyyy-MM-dd"/></td>
-			</tr>
-		</c:forEach>
-	</tbody>
-</table>
 </body>
 </html>

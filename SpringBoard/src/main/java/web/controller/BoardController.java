@@ -52,7 +52,8 @@ public class BoardController {
 		List<Board> boardList = boardService.list(paging);
 		
 		model.addAttribute("boardList", boardList);
-		model.addAttribute("Paging",paging);
+		model.addAttribute("paging",paging);
+		
 		System.out.println(paging);
 				
 	}
