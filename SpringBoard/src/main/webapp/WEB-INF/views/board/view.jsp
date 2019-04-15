@@ -37,7 +37,6 @@
 		<form id="boardForm">
 		<table class="table table-striped table-hover">
 		
-	
 			<tr>
 				<td class="info">번호</td><td>${view.board_no }</td>
 				<td class="info">제목</td><td colspan="2">${view.title }</td>

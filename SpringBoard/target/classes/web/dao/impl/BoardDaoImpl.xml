@@ -21,7 +21,7 @@
 	
 	<update id="updateHit" parameterType="web.dto.Board">
 		update board
-		set hit = #{hit}
+		set hit = #{hit}+1
 		where board_no = #{board_no}
 	</update>
 	

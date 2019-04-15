@@ -71,7 +71,7 @@
 	</beans:bean>
 	
 	<!--  다운로드 view를 down이라는 이름의 빈으로 등록 -->
-	<beans:bean id="down" class="web.view.DownloadView"/>
+	<beans:bean id="down" class="web.view.DownloadView" />
 	
 	
 	
