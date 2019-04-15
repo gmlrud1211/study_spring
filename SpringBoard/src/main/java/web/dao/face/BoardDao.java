@@ -2,6 +2,7 @@ package web.dao.face;
 
 import java.util.List;
 
+import web.dto.Board;
 import web.util.Paging;
 
 public interface BoardDao {
@@ -11,5 +12,11 @@ public interface BoardDao {
 
 	//총 게시글 수 반환
 	public int selectCntBoard();
+
+	//조회수증가
+	public void updateHit(Board board);
+
+	//board_no 조회해서 게시글 조회
+	public void selectBoardByBoardno(Board board);
 	
 }

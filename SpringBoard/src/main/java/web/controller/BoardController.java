@@ -12,7 +12,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import web.dto.Board;
 import web.service.face.BoardService;
@@ -33,9 +32,7 @@ public class BoardController {
 	
 	@RequestMapping(value="/board/list", method=RequestMethod.GET)
 	public void BoardList(HttpServletRequest req, Model model, 
-						@ModelAttribute("board")Board board) {
-						//@RequestParam(defaultValue="1")int curPage
-		
+						@ModelAttribute("board")Board board) {		
 		
 		//현재 페이지 번호 얻기
 		int curPage = boardService.getCurPage(req);
@@ -43,7 +40,6 @@ public class BoardController {
 		
 		//총게시글 수 얻기
 		int totalCount = boardService.getTotalCount(board);
-		
 		
 		//페이지 객체 생성
 		Paging paging = new Paging(totalCount, curPage);
@@ -54,8 +50,17 @@ public class BoardController {
 		model.addAttribute("boardList", boardList);
 		model.addAttribute("paging",paging);
 		
-		System.out.println(paging);
-				
+	}
+	
+	@RequestMapping(value="/board/view", method=RequestMethod.GET)
+	public void View(Board board, Model model) {
+		logger.info("게시글 읽기");
+		
+		Board view = boardService.view(board);
+		System.out.println(view);
+		
+		model.addAttribute("view", view);
+		
 	}
 
 	

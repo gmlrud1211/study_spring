@@ -18,4 +18,16 @@
 	<select id="selectCntBoard" resultType="int">
 		select count(*) from board	
 	</select>
+	
+	<update id="updateHit" parameterType="web.dto.Board">
+		update board
+		set hit = #{hit}
+		where board_no = #{board_no}
+	</update>
+	
+	
+	<select id="selectBoardByBoardno" parameterType="web.dto.Board" resultType="web.dto.Board">
+		select * from board
+		where board_no = #{board_no}
+	</select>
 </mapper>
