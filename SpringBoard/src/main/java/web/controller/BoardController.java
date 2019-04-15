@@ -18,7 +18,6 @@ public class BoardController {
 	
 	@RequestMapping(value="/board/list", method=RequestMethod.GET)
 	public void BoardList() {
-		
 	}
 
 	
