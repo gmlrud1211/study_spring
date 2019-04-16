@@ -25,11 +25,6 @@ public class BoardController {
 	
 	@Autowired BoardService boardService;
 	
-	@RequestMapping(value="/board/main", method=RequestMethod.GET)
-	public void Main() {
-		
-	}
-	
 	@RequestMapping(value="/board/list", method=RequestMethod.GET)
 	public void BoardList(HttpServletRequest req, Model model, 
 						@ModelAttribute("board")Board board) {		
