@@ -44,12 +44,12 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public Board view(Board board) {
-		
+				
 		//조회수 증가
 		boardDao.updateHit(board);
 		
 		//게시글 반환
-		boardDao.selectBoardByBoardno(board);
+		board = boardDao.selectBoardByBoardno(board);
 		
 		return board;
 	}

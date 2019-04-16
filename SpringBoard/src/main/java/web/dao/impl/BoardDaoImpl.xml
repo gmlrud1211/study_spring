@@ -21,13 +21,22 @@
 	
 	<update id="updateHit" parameterType="web.dto.Board">
 		update board
-		set hit = #{hit}+1
+		set hit = hit+1
 		where board_no = #{board_no}
 	</update>
 	
+	<resultMap id="resultBoard" type="web.dto.Board">
+        <result property="board_no" column="board_no" />
+        <result property="title" column="title" />
+        <result property="writer_id" column="writer_id" />
+        <result property="writer_nick" column="writer_nick" />
+        <result property="hit" column="hit" />
+        <result property="content" column="content" />
+        <result property="write_date" column="write_date" />
+   </resultMap>	
 	
-	<select id="selectBoardByBoardno" parameterType="web.dto.Board" resultType="web.dto.Board">
-		select * from board
+	<select id="selectBoardByBoardno" resultMap="resultBoard">
+       	select * from board
 		where board_no = #{board_no}
 	</select>
 </mapper>

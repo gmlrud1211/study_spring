@@ -17,6 +17,6 @@ public interface BoardDao {
 	public void updateHit(Board board);
 
 	//board_no 조회해서 게시글 조회
-	public void selectBoardByBoardno(Board board);
+	public Board selectBoardByBoardno(Board board);
 	
 }

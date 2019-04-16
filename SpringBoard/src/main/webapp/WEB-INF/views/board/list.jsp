@@ -10,13 +10,16 @@
 <meta charset="UTF-8">
 <title>board list</title>
 
-<style>
-	ul{text-align:center; margin-top:30px;}
-	   ul li{display: inline-block; border:1px solid #ccc}
-	   ul li a{padding:10px; text-decoration: none; color:#333; display:block;}
-	   ul li.on{border:1px solid red;}
-	   ul li.on a{color:red}
-</style>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#btnWrite").click(function() {
+			$(location).attr("href", "/board/write");
+		});
+	});
+	</script>
 
 <link rel="stylesheet" href="/css/bootstrap.css">
 </head>
@@ -52,11 +55,12 @@
 		</table>
 		</form>
 	</div>
-	<jsp:include page="../layout/paging.jsp"/>
+	<jsp:include page="../layout/paging.jsp"/>	
 	
-	<div>
-		<a href='#' onClick='fn_write()' class="btn btn-success" style="float:right">글쓰기</a>
+	<div class="text-center">	
+		<button id="btnWrite" class="btn btn-success" style="float:right">글쓰기</button>
 	</div>
+		
 	
 </body>
 </html>
