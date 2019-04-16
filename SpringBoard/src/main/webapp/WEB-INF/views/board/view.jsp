@@ -74,7 +74,7 @@
 				
 				<table class="table table-striped table-hover">
 					<tr>
-						<td class="info" colspan="3">댓글</td><td><input type="text" name="content" style="width:100%"/></td>
+						<td class="info" colspan="3">댓글</td><td><input type="text" name="content" placeholder="댓글을 입력해주세요." style="width:100%"/></td>
 						<td class="info">작성자</td><td colspan="2"><input type="text" name="id" value="${id}" readonly="readonly" style="width:30%"/></td>
 						<td><button type="button" id="commentsubmit" class="btn btn-info btn-mm">댓글등록</button></td>
 					</tr>
