@@ -24,4 +24,10 @@ public interface BoardService {
 	//게시글 작성
 	public void write(Board board);
 
+	//게시글 수정
+	public void boardUpdate(Board board);
+
+	//게시글 삭제
+	public void boardDelete(int board_no);
+
 }

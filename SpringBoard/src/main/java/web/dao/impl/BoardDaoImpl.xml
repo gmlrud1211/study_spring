@@ -44,4 +44,15 @@
 		insert into board(board_no, title, writer_id, content)
 		values(board_seq.nextval,#{title}, #{id}, #{content})
 	</insert>
+	
+	<update id="updateBoard" parameterType="web.dto.Board">
+		update board
+		set title = #{title}, content = #{content}
+		where board_no = #{board_no}	
+	</update>
+	
+	<delete id="deleteBoard" parameterType="int">
+		delete from board 
+		where board_no=#{board_no}
+	</delete>
 </mapper>

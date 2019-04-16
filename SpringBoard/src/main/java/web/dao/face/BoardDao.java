@@ -21,5 +21,11 @@ public interface BoardDao {
 
 	//게시글 insert
 	public void insertBoard(Board board);
+
+	//게시글 수정 update
+	public void updateBoard(Board board);
+
+	//게시글 삭제 delete
+	public void deleteBoard(int board_no);
 	
 }

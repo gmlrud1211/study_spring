@@ -51,11 +51,11 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value="/board/view", method=RequestMethod.GET)
-	public void View(Board board, Model model) {
+	public void View(Board board, Model model, HttpSession session) {
 		logger.info("게시글 읽기");
 		
 		Board view = boardService.view(board);
-		System.out.println(view);
+		
 		
 		model.addAttribute("view", view);
 		
@@ -68,11 +68,41 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value="/board/write", method=RequestMethod.POST)
-	public String Write(HttpSession session, Board board, Model model) {
+	public String Write(HttpSession session, Board board, int board_no, Model model) {
 		logger.info("게시글 쓰기 write");
 		
 		//전달받은 정보로 게시글 작성
 		boardService.write(board);
+		
+		return "redirect:/board/list";
+	}
+	
+	@RequestMapping(value="/board/update", method=RequestMethod.GET)
+	public void BoardUpdateForm(Board board, Model model) {
+		logger.info("게시글수정 form");
+		
+		Board view = boardService.view(board);
+		
+		model.addAttribute("view", view);
+		
+	}
+	
+	@RequestMapping(value="/board/update", method=RequestMethod.POST)
+	public String BoardUpdate(Board board, int board_no) {
+		logger.info("게시글수정처리");
+		
+		//전달받은 정보로 게시글 수정
+		boardService.boardUpdate(board);
+		
+		return "redirect:/board/list";
+	}
+	
+	@RequestMapping(value="/board/delete", method=RequestMethod.GET)
+	public String BoardDelete(Board board, int board_no) {
+		logger.info("게시글삭제");
+		
+		//게시글 삭제 처리
+		boardService.boardDelete(board_no);
 		
 		return "redirect:/board/list";
 	}
