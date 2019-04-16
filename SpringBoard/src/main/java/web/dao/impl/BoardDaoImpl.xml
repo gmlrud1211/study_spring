@@ -45,7 +45,7 @@
 		values(board_seq.nextval,#{title}, #{id}, #{content})
 	</insert>
 	
-	<update id="updateBoard" parameterType="web.dto.Board">
+	<update id="updateBoard">
 		update board
 		set title = #{title}, content = #{content}
 		where board_no = #{board_no}	

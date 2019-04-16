@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import web.dto.Board;
@@ -68,7 +69,7 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value="/board/write", method=RequestMethod.POST)
-	public String Write(HttpSession session, Board board, int board_no, Model model) {
+	public String Write(Board board, Model model) {
 		logger.info("게시글 쓰기 write");
 		
 		//전달받은 정보로 게시글 작성
@@ -88,7 +89,7 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value="/board/update", method=RequestMethod.POST)
-	public String BoardUpdate(Board board, int board_no) {
+	public String BoardUpdate(Board board, Model model, @RequestParam("board_no") int board_no) {
 		logger.info("게시글수정처리");
 		
 		//전달받은 정보로 게시글 수정

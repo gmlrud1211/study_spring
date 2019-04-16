@@ -22,16 +22,17 @@
 		<h3>게시글 상세조회</h3>
 		<hr>
 		
-		<form id="boardForm" action="post">
+		<form action="/board/update" method="post">
+		
 		<table class="table table-striped table-hover">
 		
 			<tr>
-				<td class="info">번호</td><td>${view.board_no }</td>
+				<td class="info">번호</td><td><input type="text" name="board_no" value="${view.board_no }" readonly="readonly"/></td>
 				<td class="info">제목</td><td colspan="2"><input type="text" name="title" value="${view.title }"/></td>
 			</tr>
 			
 			<tr>
-				<td class="info">아이디</td><td>${view.writer_id }</td>
+				<td class="info">아이디</td><td><input type="text" name="board_no" value="${view.writer_id}" readonly="readonly"/></td>
 				<td class="info">닉네임</td><td colspan="2">${view.writer_nick }</td>
 			</tr>
 		
@@ -47,15 +48,13 @@
 		</table>
 		<br>
 		<div>
-			<input type="submit" value="글 작성"/>
+			<input type="submit" class="btn btn-info" value="글 작성"/>
+			<button id="btnList" class="btn btn-primary">목록으로</button>
 		</div>
 				
 		</form>
 	</div>
 	
-	<div class="text-center">	
-		<button id="btnList" class="btn btn-primary">목록으로</button>
-	</div>
 		
 	
 </body>
