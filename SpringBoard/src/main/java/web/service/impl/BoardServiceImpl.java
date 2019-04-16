@@ -76,6 +76,11 @@ public class BoardServiceImpl implements BoardService {
 		return null;
 	}
 
+	@Override
+	public void commentWrite(Comment comment) {
+		boardDao.commentWrite(comment);
+	}
+
 
 
 

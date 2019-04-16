@@ -11,6 +11,15 @@ public class Comment {
 	private String content;
 	private Date write_date;
 	
+	private String id;
+	
+	
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	public int getComment_no() {
 		return comment_no;
 	}
@@ -50,9 +59,9 @@ public class Comment {
 	@Override
 	public String toString() {
 		return "Comment [comment_no=" + comment_no + ", board_no=" + board_no + ", writer_id=" + writer_id
-				+ ", writer_nick=" + writer_nick + ", content=" + content + ", write_date=" + write_date + "]";
+				+ ", writer_nick=" + writer_nick + ", content=" + content + ", write_date=" + write_date + ", id=" + id
+				+ "]";
 	}
-	
 	
 	
 }

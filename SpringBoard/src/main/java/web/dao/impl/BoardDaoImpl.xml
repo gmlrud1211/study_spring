@@ -55,4 +55,10 @@
 		delete from board 
 		where board_no=#{board_no}
 	</delete>
+	
+	<insert id="commentWrite" parameterType="web.dto.Comment">
+		insert into commentTB(comment_no, board_no, writer_id, content)
+		values (commentTB_seq.nextval, #{board_no}, #{id}, #{content})
+	</insert>
+	
 </mapper>

@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
 import web.dto.Board;
 import web.dto.Comment;
@@ -60,8 +62,6 @@ public class BoardController {
 		
 		List<Comment> commentList = boardService.commentList(board);
 
-		
-		
 		model.addAttribute("view", view);
 		
 	}
@@ -101,7 +101,7 @@ public class BoardController {
 		
 		return "redirect:/board/list";
 	}
-	
+
 	@RequestMapping(value="/board/delete", method=RequestMethod.GET)
 	public String BoardDelete(Board board, int board_no) {
 		logger.info("게시글삭제");
@@ -111,6 +111,25 @@ public class BoardController {
 		
 		return "redirect:/board/list";
 	}
+	
+	@RequestMapping(value="/board/comment", method=RequestMethod.POST)
+	public ModelAndView BoardCommentWrite(Comment comment, Model model, @RequestParam("board_no") int board_no) {
+		logger.info("댓글 등록");
+		
+		//댓글 등록
+		boardService.commentWrite(comment);
+		
+		ModelAndView mav = new ModelAndView();
+		RedirectView redirectView = new RedirectView();
+		redirectView.setUrl("redirect:/board/view?="+board_no);
+		redirectView.setExposeModelAttributes(false);
+		
+		mav.setView(redirectView);
+				
+		return mav;
+		
+	}
+	
 	
 	
 	

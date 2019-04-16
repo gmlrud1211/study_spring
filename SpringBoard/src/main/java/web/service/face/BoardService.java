@@ -34,4 +34,7 @@ public interface BoardService {
 	//댓글 리스트로 불러오기
 	public List<Comment> commentList(Board board);
 
+	//댓글작성
+	public void commentWrite(Comment comment);
+
 }

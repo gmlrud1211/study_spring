@@ -3,6 +3,7 @@ package web.dao.face;
 import java.util.List;
 
 import web.dto.Board;
+import web.dto.Comment;
 import web.util.Paging;
 
 public interface BoardDao {
@@ -27,5 +28,8 @@ public interface BoardDao {
 
 	//게시글 삭제 delete
 	public void deleteBoard(int board_no);
+
+	//댓글 insert
+	public void commentWrite(Comment comment);
 	
 }

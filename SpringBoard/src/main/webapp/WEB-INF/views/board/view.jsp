@@ -24,6 +24,15 @@
 		$("#btnDelete").click(function() {
 			$(location).attr("href", "/board/delete?board_no=${view.board_no }");
 		});
+		
+		$("#commentsubmit").click(function() {
+			if($("#content").val() == ""){
+				alert("댓글내용을 입력해주세요");
+				return;
+			} else {
+				$("form").submit();
+			}
+		});
 	});
 	</script>
 <link rel="stylesheet" href="/css/bootstrap.css">
@@ -58,15 +67,21 @@
 			</tr>
 		</table>
 		</form>
-		<div class="text-center">
-			<table class="table table-striped table-hover">
-				<tr>
-					<td class="info">댓글</td><td><input type="text" name="content" style="width:100%"/></td>
-					<td class="info">작성자</td><td colspan="2">${view.writer_id}</td>
-				</tr>
-			</table>
-		</div>
 		
+		<form action="/board/comment" method="post">
+			<div class="text-center">
+				<input type="hidden" name="board_no" value="${view.board_no }"/>
+				
+				<table class="table table-striped table-hover">
+					<tr>
+						<td class="info" colspan="3">댓글</td><td><input type="text" name="content" style="width:100%"/></td>
+						<td class="info">작성자</td><td colspan="2"><input type="text" name="id" value="${id}" readonly="readonly" style="width:30%"/></td>
+						<td><button type="button" id="commentsubmit" class="btn btn-info btn-mm">댓글등록</button></td>
+					</tr>
+				</table>
+			</div>
+		</form>
+	
 	</div>
 	
 	<div class="text-center">	
