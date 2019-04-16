@@ -54,7 +54,7 @@
 			</tr>
 		
 			<tr>
-				<td class="info">작성일</td><td colspan="4">${view.write_date }</td>
+				<td class="info">작성일</td><td colspan="4"><fmt:formatDate value="${view.write_date }" pattern="yyyy-MM-dd"/></td>
 			</tr>
 		</table>
 		</form>

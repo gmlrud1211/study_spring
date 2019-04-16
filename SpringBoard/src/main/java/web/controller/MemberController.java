@@ -33,7 +33,7 @@ private static final Logger logger = LoggerFactory.getLogger(MemberController.cl
 
 	@RequestMapping(value="/member/login", method=RequestMethod.POST)
 	public String LoginProc(HttpSession session, 
-							String id, String pw, 
+							String id, String pw,
 							Model model) {
 		
 		model.addAttribute("id",id);

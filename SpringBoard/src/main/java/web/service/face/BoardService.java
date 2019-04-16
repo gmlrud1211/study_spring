@@ -21,4 +21,7 @@ public interface BoardService {
 	//게시글 조회(조회시마다 게시글 조회수 1up)
 	public Board view(Board board);
 
+	//게시글 작성
+	public void write(Board board);
+
 }

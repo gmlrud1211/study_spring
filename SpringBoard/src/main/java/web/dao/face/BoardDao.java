@@ -18,5 +18,8 @@ public interface BoardDao {
 
 	//board_no 조회해서 게시글 조회
 	public Board selectBoardByBoardno(Board board);
+
+	//게시글 insert
+	public void insertBoard(Board board);
 	
 }

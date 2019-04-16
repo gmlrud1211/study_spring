@@ -57,6 +57,25 @@ public class BoardController {
 		model.addAttribute("view", view);
 		
 	}
+	
+	@RequestMapping(value="/board/write", method=RequestMethod.GET)
+	public void WriteForm() {
+		logger.info("게시글 쓰기 form");
+	
+	}
+	
+	@RequestMapping(value="/board/write", method=RequestMethod.POST)
+	public String Write(Board board, Model model) {
+		logger.info("게시글 쓰기 write");
+		
+		
+		
+		//전달받은 정보로 게시글 작성
+		boardService.write(board);
+		
+		return "redirect:/board/list";
+	}
+	
 
 	
 }

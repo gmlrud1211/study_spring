@@ -23,7 +23,7 @@
 		
 		<!-- 로그인 한 상태 -->
 		<c:if test="${ login }">
-		
+			<a href="/board/list"><button>게시판으루~</button></a>
 			<a href="/member/logout"><button>로그아웃</button></a>
 		</c:if>
 			
