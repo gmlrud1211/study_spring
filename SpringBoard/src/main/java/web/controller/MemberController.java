@@ -43,6 +43,7 @@ private static final Logger logger = LoggerFactory.getLogger(MemberController.cl
 		
 		if(login == 1) { //로그인 성공
 			session.setAttribute("login", true);
+			session.setAttribute("id", id);
 			logger.info("로그인 성공");
 			
 			return "redirect:/member/main";

@@ -11,7 +11,16 @@ public class Board {
 	private int hit;
 	private String content;
 	private Date write_date;
+	private String id;
 	
+	
+	
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	public int getBoard_no() {
 		return board_no;
 	}
@@ -57,8 +66,10 @@ public class Board {
 	@Override
 	public String toString() {
 		return "Board [board_no=" + board_no + ", title=" + title + ", writer_id=" + writer_id + ", writer_nick="
-				+ writer_nick + ", hit=" + hit + ", content=" + content + ", write_date=" + write_date + "]";
+				+ writer_nick + ", hit=" + hit + ", content=" + content + ", write_date=" + write_date + ", id=" + id
+				+ "]";
 	}
+
 
 	
 }

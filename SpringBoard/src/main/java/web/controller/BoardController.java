@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import web.dto.Board;
 import web.service.face.BoardService;
@@ -19,6 +20,7 @@ import web.util.Paging;
 
 
 @Controller
+@SessionAttributes("id")
 public class BoardController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
@@ -67,7 +69,6 @@ public class BoardController {
 	@RequestMapping(value="/board/write", method=RequestMethod.POST)
 	public String Write(Board board, Model model) {
 		logger.info("게시글 쓰기 write");
-		
 		
 		
 		//전달받은 정보로 게시글 작성
