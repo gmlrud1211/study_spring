@@ -1,0 +1,69 @@
+Create table test_member(
+    no number,
+    id varchar2(100),
+    pw varchar2(100)
+);
+drop sequence member_seq;
+create SEQUENCE member_seq;
+
+select * from test_member
+order by no desc;
+
+
+
+drop table board; 
+drop sequence board_seq;
+
+
+create table board(
+    board_no number primary key, --글번호
+    title varchar2(500), --제목
+    writer_id varchar2(100), --작성자 아이디
+    writer_nick varchar2(100), --작성자 닉네임
+    hit number default 0, --조회수
+    content varchar2(4000), --본문
+    write_date date default sysdate --최초작성일 
+);
+
+insert into board(board_no, title, writer_id, writer_nick, content)
+values(board_seq.nextval,'하하하하하하', 'hkhk','h2kyoung','ㅎ하하ㅏ하하하ㅏ핳');
+
+
+create SEQUENCE board_seq;
+select board_seq.nextval from dual;
+
+
+select count(*) from board;
+select board_seq.nextval from dual;
+
+select * from board
+order by board_no desc;
+
+drop table member;
+create table member(   
+    id VARCHAR2(100) primary key, --아이디
+	pw VARCHAR2(100), --비밀번호
+	nick VARCHAR2(100) --닉네임
+);
+
+
+select * from member;
+drop sequence member_seq;
+create SEQUENCE member_seq;
+
+
+create table commentTB (
+	comment_no NUMBER primary key,
+	board_no NUMBER,
+	writer_id VARCHAR2(100),
+	writer_nick VARCHAR2(100),
+	content VARCHAR2(1000),
+	write_date DATE default SYSDATE,
+    
+    foreign key(board_no) references board(board_no)
+);
+	
+create Sequence commentTB_seq;
+
+
+commit;
