@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import web.dto.Board;
+import web.dto.Comment;
 import web.util.Paging;
 
 public interface BoardService {
@@ -29,5 +30,8 @@ public interface BoardService {
 
 	//게시글 삭제
 	public void boardDelete(int board_no);
+
+	//댓글 리스트로 불러오기
+	public List<Comment> commentList(Board board);
 
 }

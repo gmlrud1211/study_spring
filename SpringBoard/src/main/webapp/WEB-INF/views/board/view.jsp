@@ -58,14 +58,24 @@
 			</tr>
 		</table>
 		</form>
+		<div class="text-center">
+			<table class="table table-striped table-hover">
+				<tr>
+					<td class="info">댓글</td><td><input type="text" name="content" style="width:100%"/></td>
+					<td class="info">작성자</td><td colspan="2">${view.writer_id}</td>
+				</tr>
+			</table>
+		</div>
+		
 	</div>
 	
 	<div class="text-center">	
 		<button id="btnList" class="btn btn-primary">목록</button>
-		<button id="btnUpdate" class="btn btn-info">수정</button>
-		<button id="btnDelete" class="btn btn-danger">삭제</button>
+		<c:if test="${id == view.writer_id}">
+			<button id="btnUpdate" class="btn btn-info">수정</button>
+			<button id="btnDelete" class="btn btn-danger">삭제</button>
+		</c:if>
 	</div>
-		
 	
 </body>
 </html>

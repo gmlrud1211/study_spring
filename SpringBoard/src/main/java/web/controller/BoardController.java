@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import web.dto.Board;
+import web.dto.Comment;
 import web.service.face.BoardService;
 import web.util.Paging;
 
@@ -56,6 +57,9 @@ public class BoardController {
 		logger.info("게시글 읽기");
 		
 		Board view = boardService.view(board);
+		
+		List<Comment> commentList = boardService.commentList(board);
+
 		
 		
 		model.addAttribute("view", view);
@@ -107,6 +111,9 @@ public class BoardController {
 		
 		return "redirect:/board/list";
 	}
+	
+	
+	
 	
 
 	

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import web.dao.face.BoardDao;
 import web.dto.Board;
+import web.dto.Comment;
 import web.service.face.BoardService;
 import web.util.Paging;
 
@@ -68,6 +69,11 @@ public class BoardServiceImpl implements BoardService {
 	public void boardDelete(int board_no) {
 
 		boardDao.deleteBoard(board_no);
+	}
+
+	@Override
+	public List<Comment> commentList(Board board) {
+		return null;
 	}
 
 
