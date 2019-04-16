@@ -20,6 +20,10 @@
 					<label for="title">글제목</label>
 					<input type="text" id="title" name="title" />
 				</div>
+				<div>
+					<label for="id">작성자</label>
+					<input type="text" name="id" value="${id }" readonly="readonly" />
+				</div>
 				
 				<div >
 					<label for="content" >내용</label>

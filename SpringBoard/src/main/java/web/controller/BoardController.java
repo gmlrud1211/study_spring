@@ -3,6 +3,7 @@ package web.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -67,9 +68,8 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value="/board/write", method=RequestMethod.POST)
-	public String Write(Board board, Model model) {
+	public String Write(HttpSession session, Board board, Model model) {
 		logger.info("게시글 쓰기 write");
-		
 		
 		//전달받은 정보로 게시글 작성
 		boardService.write(board);
