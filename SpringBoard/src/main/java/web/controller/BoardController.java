@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
 import web.dto.Board;
 import web.dto.Comment;
@@ -115,13 +116,13 @@ public class BoardController {
 	public ModelAndView BoardCommentWrite(Comment comment, Model model, @RequestParam("board_no") int board_no) {
 		logger.info("댓글 등록");
 		
-		ModelAndView mav = new ModelAndView();
 		//댓글 등록
 		boardService.commentWrite(comment);
 		
-		mav.setViewName("redirect:/board/view?="+board_no);
+		RedirectView redirectView = new RedirectView("redirect:/board/view?="+board_no);
+		redirectView.setExposeModelAttributes(false);
 		
-		return mav;
+		return new ModelAndView(redirectView);
 		
 	}
 	
