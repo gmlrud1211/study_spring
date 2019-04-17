@@ -61,4 +61,10 @@
 		values (commentTB_seq.nextval, #{board_no}, #{id}, #{content})
 	</insert>
 	
+	<select id="getComment" resultType="web.dto.Comment">
+		select * from commentTB
+		where board_no = #{board_no}
+		order by comment_no asc
+	</select>
+	
 </mapper>

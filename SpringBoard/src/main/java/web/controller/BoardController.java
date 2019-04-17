@@ -63,6 +63,7 @@ public class BoardController {
 		List<Comment> commentList = boardService.commentList(board);
 
 		model.addAttribute("view", view);
+		model.addAttribute("commentList",commentList);
 		
 	}
 	

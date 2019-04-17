@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@page import="java.util.List"%>
+<%@page import="web.dto.Comment"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
@@ -78,6 +79,23 @@
 						<td class="info">작성자</td><td colspan="2"><input type="text" name="id" value="${id}" readonly="readonly" style="width:30%"/></td>
 						<td><button type="button" id="commentsubmit" class="btn btn-info btn-mm">댓글등록</button></td>
 					</tr>
+				</table>
+				
+				<table class="table table-striped table-hover">
+					<% List<Comment> commentList = (List) request.getAttribute("commentList"); %>
+					
+					<%
+						for(int i=0; i<commentList.size(); i++) {
+							if(commentList.get(i).getComment_no()<1 );
+					%>
+					<tr class="replyrow">
+						<td id="replyElements"><%=commentList.get(i).getComment_no()%></td>
+						<td id="replyElements"><%=commentList.get(i).getWriter_id() %></td>
+						<td id="replyElements"><%=commentList.get(i).getContent() %></td>
+						<td id="replyElements"><fmt:formatDate value="<%=commentList.get(i).getWrite_date() %>" pattern="MM-dd"/></td>
+						<td><button type="button" id="replydelte" class="btn btn-warning-outline btn-sm">삭제</button></td>
+					</tr>
+					<% } %>
 				</table>
 			</div>
 		</form>

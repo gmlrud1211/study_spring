@@ -31,5 +31,8 @@ public interface BoardDao {
 
 	//댓글 insert
 	public void commentWrite(Comment comment);
+
+	//댓글목록 조회
+	public List<Comment> getComment(Board board);
 	
 }

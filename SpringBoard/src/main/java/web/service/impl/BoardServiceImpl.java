@@ -73,7 +73,7 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public List<Comment> commentList(Board board) {
-		return null;
+		return boardDao.getComment(board);
 	}
 
 	@Override
