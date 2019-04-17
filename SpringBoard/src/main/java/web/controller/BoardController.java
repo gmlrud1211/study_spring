@@ -166,9 +166,13 @@ public class BoardController {
 	public void BoardRecommend(Board board, Model model, @RequestParam("board_no") int board_no) {
 		logger.info("게시글 추천");
 		
-		
-		
-		
+		/*
+		 * if(type.equals("recommend")) { // 추천인 경우 boardService.recommend(u_no, b_no);
+		 * } else if(type.equals("cancel")) { // 추천취소인 경우
+		 * boardService.recommendCancel(u_no, b_no); }
+		 * 
+		 * int count = boardService.getRecommendCnt(b_no);
+		 */
 		
 		
 	}

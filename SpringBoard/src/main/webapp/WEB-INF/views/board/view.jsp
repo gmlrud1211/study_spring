@@ -16,18 +16,25 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
+		
+		
+		
+		
 		$("#btnList").click(function() {
 			$(location).attr("href", "/board/list");
 		});
 		
+		//게시글 수정
 		$("#btnUpdate").click(function() {
 			$(location).attr("href", "/board/update?board_no=${view.board_no }");
 		});
 		
+		//게시글 삭제
 		$("#btnDelete").click(function() {
 			$(location).attr("href", "/board/delete?board_no=${view.board_no }");
 		});
 		
+		//댓글 작성
 		$("#commentsubmit").click(function() {
 			if($("#content").val() == ""){
 				alert("댓글내용을 입력해주세요");
@@ -41,6 +48,35 @@
 			var comment_no = $(this).attr("comment_no");
 			console.log(comment_no);
 			//$(location).attr("href", "/board/commentDelete?comment_no="+comment_no);
+		});
+		
+		//추천버튼 클릭
+		$("#btnRecomm").click(function () {
+			
+			var userid = {view.writer_id};
+			var boardno = {view.board_no};
+			var type = "recommend";
+			
+			$.ajax({
+				type:"post"
+				, url : "/board/recommend"
+				, data : {
+					"userid":userid,
+					"boardno":boardno,
+					"type":type
+				}
+				, dataType:"text"
+				, success: function(data){
+					$("#btnRecomm").show();
+					$("#btnRecommCancel").hide();
+				$("#cnt").html(data);
+				}
+				, error: function(e) {
+					alert("추천실패, 잠시 후 다시 시도해주세요");
+					console.log(e);
+				}
+			});
+			
 		});
 		
 	});
@@ -70,6 +106,10 @@
 		
 			<tr>
 				<td class="info">조회수</td><td>${view.hit }</td>
+				<td class="info">추천수</td><td id="recommendCnt"><span id="cnt"><%-- ${  } --%> </span>
+					<button id="btnRecomm" class="btn btn-success btn-sm">추천up!</button>
+					<button id="btnRecommCancel" class="btn btn-warning btn-sm">추천취소</button>
+				</td>
 			</tr>
 		
 			<tr>
