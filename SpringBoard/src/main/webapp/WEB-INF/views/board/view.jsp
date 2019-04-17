@@ -34,6 +34,13 @@
 				$("form").submit();
 			}
 		});
+		
+		$("#commentdelete").click(function() {
+			var comment_no = $(this).attr("comment_no");
+			console.log(comment_no);
+			//$(location).attr("href", "/board/commentDelete?comment_no="+comment_no);
+		});
+		
 	});
 	</script>
 <link rel="stylesheet" href="/css/bootstrap.css">
@@ -93,7 +100,11 @@
 						<td id="replyElements"><%=commentList.get(i).getWriter_id() %></td>
 						<td id="replyElements"><%=commentList.get(i).getContent() %></td>
 						<td id="replyElements"><fmt:formatDate value="<%=commentList.get(i).getWrite_date() %>" pattern="MM-dd"/></td>
-						<td><button type="button" id="replydelte" class="btn btn-warning-outline btn-sm">삭제</button></td>
+						<td>
+							<c:if test="${id == view.writer_id}">
+							<button type="button" id="commentdelete" class="btn btn-warning-outline btn-sm">삭제</button>
+							</c:if>
+						</td>
 					</tr>
 					<% } %>
 				</table>

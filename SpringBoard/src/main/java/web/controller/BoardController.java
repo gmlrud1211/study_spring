@@ -127,6 +127,14 @@ public class BoardController {
 		
 	}
 	
+	@RequestMapping(value="/board/commentDelete", method=RequestMethod.GET)
+	public void BoardCommentDelete(Comment comment, Model model, @RequestParam("board_no") int board_no) {
+		logger.info("댓글 삭제");
+		
+		//댓글 등록
+		//boardService.commentDelete(comment);
+	
+	}
 	
 	
 	
