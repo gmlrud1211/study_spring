@@ -4,19 +4,38 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="web.dao.face.BoardDao">
-	<select id="selectAll" parameterType="web.util.Paging" resultType="web.dto.Board">
+	<select id="selectAll" resultType="web.dto.Board">
 		select * from (
 		 select rownum rnum, B.* from(
 			select * from board
+			where 1=1
+			<choose>
+				<when test="type=='title'">
+					and title like '%' || #{word} || '%'
+				</when>
+				<when test="type=='content'">
+					and content like '%' || #{word} || '%' 
+				</when>
+			</choose>
 			order by board_no desc
 		 ) B
 		 order by rnum
 		 ) R
-		 where rnum between #{startNo} and #{endNo}
+		 where rnum between #{paging.startNo} and #{paging.endNo}
+		 
 	</select>
 	
 	<select id="selectCntBoard" resultType="int">
-		select count(*) from board	
+		select count(*) from board
+		where 1=1
+		<choose>
+			<when test="type=='title'">
+				and title like '%' || #{word} || '%'
+			</when>
+			<when test="type=='content'">
+				and content like '%' || #{word} || '%' 
+			</when>
+		</choose>
 	</select>
 	
 	<update id="updateHit" parameterType="web.dto.Board">
@@ -65,6 +84,17 @@
 		select * from commentTB
 		where board_no = #{board_no}
 		order by comment_no asc
+	</select>
+	
+	<select id="search" parameterType="String" resultType="web.dto.Board">
+		select * from board
+		<if test="type=='title'.toString()" >
+			where title like '%${word}%'
+		</if>
+		<if test="type=='content'.toString()">
+			where content like '%${word}%'
+		</if>
+		order by board_no desc
 	</select>
 	
 </mapper>

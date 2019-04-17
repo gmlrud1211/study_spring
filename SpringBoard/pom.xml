@@ -24,6 +24,17 @@
 	
 	
 	<dependencies>
+		
+		<!--jackson Databind (jackson Mpapper를 포함하고 있음)  -->
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		    <version>2.9.8</version>
+		</dependency>
+					
+	
+	
 		<!--스프링 마이바티스 -->
 		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
 		<dependency>

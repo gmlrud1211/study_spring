@@ -2,6 +2,8 @@ package web.dao.face;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import web.dto.Board;
 import web.dto.Comment;
 import web.util.Paging;
@@ -9,10 +11,10 @@ import web.util.Paging;
 public interface BoardDao {
 
 	//게시글 목록 조회
-	public List selectAll(Paging paging);
+	public List selectAll(@Param("paging")Paging paging,@Param("type") String type, @Param ("word") String word);
 
 	//총 게시글 수 반환
-	public int selectCntBoard();
+	public int selectCntBoard(@Param("type") String type, @Param ("word") String word);
 
 	//조회수증가
 	public void updateHit(Board board);
@@ -34,5 +36,8 @@ public interface BoardDao {
 
 	//댓글목록 조회
 	public List<Comment> getComment(Board board);
-	
+
+	//검색조회
+	public List<Board> search(String type, String word);
+
 }

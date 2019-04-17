@@ -19,9 +19,11 @@
 		$("#btnList").click(function() {
 			$(location).attr("href", "/board/list");
 		});
+		
 		$("#btnUpdate").click(function() {
 			$(location).attr("href", "/board/update?board_no=${view.board_no }");
 		});
+		
 		$("#btnDelete").click(function() {
 			$(location).attr("href", "/board/delete?board_no=${view.board_no }");
 		});
@@ -101,9 +103,7 @@
 						<td id="replyElements"><%=commentList.get(i).getContent() %></td>
 						<td id="replyElements"><fmt:formatDate value="<%=commentList.get(i).getWrite_date() %>" pattern="MM-dd"/></td>
 						<td>
-							<c:if test="${id == view.writer_id}">
 							<button type="button" id="commentdelete" class="btn btn-warning-outline btn-sm">삭제</button>
-							</c:if>
 						</td>
 					</tr>
 					<% } %>
@@ -113,7 +113,7 @@
 	
 	</div>
 	
-	<div class="text-center">	
+	<div class="text-center">
 		<button id="btnList" class="btn btn-primary">목록</button>
 		<c:if test="${id == view.writer_id}">
 			<button id="btnUpdate" class="btn btn-info">수정</button>

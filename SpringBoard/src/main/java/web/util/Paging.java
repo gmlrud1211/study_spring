@@ -15,6 +15,17 @@ public class Paging {
 	private int startNo;
 	private int endNo;
 	
+	private String search;
+	
+	
+	public String getSearch() {
+		return search;
+	}
+
+	public void setSearch(String search) {
+		this.search = search;
+	}
+
 	//총 게시글만 입력하는 생성자
 	public Paging(int totalCount) {
 		this.setTotalCount(totalCount);

@@ -19,13 +19,13 @@ public class BoardServiceImpl implements BoardService {
 	@Autowired BoardDao boardDao;
 
 	@Override
-	public List list(Paging paging) {
-		return boardDao.selectAll(paging);
+	public List list(Paging paging, String type, String word) {
+		return boardDao.selectAll(paging,type, word);
 	}
 	
 	@Override
-	public int getTotalCount(Board board) {
-		return boardDao.selectCntBoard();
+	public int getTotalCount(String type, String word) {
+		return boardDao.selectCntBoard(type,word);
 	}
 
 	@Override
@@ -81,7 +81,10 @@ public class BoardServiceImpl implements BoardService {
 		boardDao.commentWrite(comment);
 	}
 
-
+	@Override
+	public List<Board> getSearch(String type, String word) {
+		return boardDao.search(type,word);
+	}
 
 
 }

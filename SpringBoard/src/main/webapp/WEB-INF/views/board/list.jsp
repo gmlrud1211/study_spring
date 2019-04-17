@@ -18,6 +18,7 @@
 		$("#btnWrite").click(function() {
 			$(location).attr("href", "/board/write");
 		});
+	
 	});
 	</script>
 
@@ -56,6 +57,22 @@
 		</form>
 	</div>
 	<jsp:include page="../layout/paging.jsp"/>	
+	<br>
+	
+	<div class='text-center' style="clear:both;">
+		<form method='get' action='/board/list'>
+		   
+		      <select name='type'> <!-- 검색 컬럼 -->
+		       
+		        <option id="title" value='title'>제목</option>
+		        <option id="content" value='content'>내용</option>
+		      
+		      </select>
+		      <input type='text' name='word' placeholder="검색어를 입력해주세요."> 
+		            <button type='submit' >검색</button>    
+		  </form>
+	  </div>
+		
 	
 	<div class="text-center">	
 		<button id="btnWrite" class="btn btn-success" style="float:right">글쓰기</button>

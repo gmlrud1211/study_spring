@@ -34,23 +34,28 @@ public class BoardController {
 	
 	@RequestMapping(value="/board/list", method=RequestMethod.GET)
 	public void BoardList(HttpServletRequest req, Model model, 
-						@ModelAttribute("board")Board board) {		
+						String type, String word ) {		
 		
 		//현재 페이지 번호 얻기
 		int curPage = boardService.getCurPage(req);
 		System.out.println(curPage);
 		
 		//총게시글 수 얻기
-		int totalCount = boardService.getTotalCount(board);
+		int totalCount = boardService.getTotalCount(type, word);
 		
 		//페이지 객체 생성
 		Paging paging = new Paging(totalCount, curPage);
 		System.out.println(paging);
 		
-		List<Board> boardList = boardService.list(paging);
+		List<Board> boardList = boardService.list(paging,type,word);
+		
 		
 		model.addAttribute("boardList", boardList);
 		model.addAttribute("paging",paging);
+		
+		model.addAttribute("type", type);
+		model.addAttribute("word",word);		
+		
 		
 	}
 	
@@ -121,7 +126,7 @@ public class BoardController {
 		boardService.commentWrite(comment);
 		
 		RedirectView redirectView = new RedirectView("redirect:/board/view?="+board_no);
-		redirectView.setExposeModelAttributes(false);
+		redirectView.setExposeModelAttributes(true);
 		
 		return new ModelAndView(redirectView);
 		
@@ -134,6 +139,38 @@ public class BoardController {
 		//댓글 등록
 		//boardService.commentDelete(comment);
 	
+	}
+	
+	@RequestMapping(value="/board/search", method=RequestMethod.POST)
+	public String BoardSearch(Model model, 
+							@RequestParam("type") String type,
+							@RequestParam("word") String word
+							) {
+		logger.info("게시글 검색");
+		
+		System.out.println(type);
+		System.out.println(word);
+		
+		//수정필요 ㅅㅄㅄㅄㅄㅅㅂ
+		//검색된게시글 조회
+		List<Board> boardList = boardService.getSearch(type, word);
+		
+		//model로 전달
+		model.addAttribute(boardList);
+		
+		return  "redirect:/board/list";
+	
+	}
+	
+	@RequestMapping(value="/board/recommend", method=RequestMethod.GET)
+	public void BoardRecommend(Board board, Model model, @RequestParam("board_no") int board_no) {
+		logger.info("게시글 추천");
+		
+		
+		
+		
+		
+		
 	}
 	
 	
